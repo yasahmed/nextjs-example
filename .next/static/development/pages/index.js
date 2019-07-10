@@ -12682,48 +12682,54 @@ var _jsxFileName = "/Users/mac/Dev/ReactJs/hello-next/pages/index.js";
 // );
 
 function Index() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])({
-    hits: []
-  }),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])([]),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(
-  /*#__PURE__*/
-  Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  /*#__PURE__*/
-  _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var result;
-    return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_6___default()('http://hn.algolia.com/api/v1/search?query=redux');
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    function fetchData() {
+      return _fetchData.apply(this, arguments);
+    }
 
-          case 2:
-            result = _context.sent;
-            setData(result.data);
-            return _context.abrupt("return", true);
+    function _fetchData() {
+      _fetchData = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+      /*#__PURE__*/
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var result;
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_6___default()('https://jsonplaceholder.typicode.com/posts');
 
-          case 5:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  })), []);
+              case 2:
+                result = _context.sent;
+                setData(result.data);
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+      return _fetchData.apply(this, arguments);
+    }
+
+    fetchData();
+  }, []);
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 39
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 40
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("meta", {
@@ -12731,7 +12737,7 @@ function Index() {
     content: "RgfVe_zgXrs-sgnYxtrTniH-YjyCQewNqYodKg_RKXU",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 41
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("meta", {
@@ -12739,35 +12745,35 @@ function Index() {
     content: "width=device-width, initial-scale=1",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 42
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("meta", {
     charSet: "utf-8",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 43
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 46
     },
     __self: this
-  }, data.hits.map(function (item) {
+  }, data.map(function (item) {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("li", {
-      key: item.objectID,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
-      href: item.url,
+      key: item.id,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 48
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
+      href: item.id,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
       },
       __self: this
     }, item.title));

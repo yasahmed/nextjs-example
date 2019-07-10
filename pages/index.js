@@ -22,18 +22,19 @@ import axios from 'axios';
 
 
 function Index() {
-    const [data, setData] = useState({ hits: [] });
+    const [data, setData] = useState([]);
 
 
-    useEffect(async () => {
-      const result = await axios(
-        'http://hn.algolia.com/api/v1/search?query=redux',
-      );
-  
-      setData(result.data);
-      return true;
-    },[]);
-  
+    useEffect(() => {
+        async function fetchData() {
+            const result = await axios(
+                'https://jsonplaceholder.typicode.com/posts',
+              );
+              setData(result.data);
+        }
+        fetchData();
+      }, []);
+
     return (
         <div>
         <Head>
@@ -43,9 +44,9 @@ function Index() {
       </Head>
 
       <ul>
-      {data.hits.map(item => (
-        <li key={item.objectID}>
-          <a href={item.url}>{item.title}</a>
+      {data.map(item => (
+        <li key={item.id}>
+          <a href={item.id}>{item.title}</a>
         </li>
       ))}
     </ul>
